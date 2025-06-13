@@ -1,0 +1,161 @@
+.tictactoe {
+  text-align: center;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.game-status {
+  margin-bottom: 1.5rem;
+}
+
+.game-status h4 {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0;
+  padding: 0.75rem;
+  background: #f3f4f6;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+body.dark .game-status h4 {
+  color: #e5e7eb;
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.tictactoe-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  aspect-ratio: 1;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tictactoe-cell {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  color: #374151;
+}
+
+.tictactoe-cell:hover:not(.filled) {
+  background: #f3f4f6;
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.tictactoe-cell.filled {
+  cursor: not-allowed;
+}
+
+.tictactoe-cell.player-x {
+  color: #3b82f6;
+  background: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.tictactoe-cell.player-o {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #dc2626;
+}
+
+body.dark .tictactoe-cell {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+body.dark .tictactoe-cell:hover:not(.filled) {
+  background: #374151;
+  border-color: #60a5fa;
+}
+
+body.dark .tictactoe-cell.player-x {
+  color: #60a5fa;
+  background: #1e3a8a;
+  border-color: #60a5fa;
+}
+
+body.dark .tictactoe-cell.player-o {
+  color: #fca5a5;
+  background: #7f1d1d;
+  border-color: #fca5a5;
+}
+
+.reset-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.game-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fef3c7;
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+}
+
+.game-info p {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.9rem;
+}
+
+body.dark .game-info {
+  background: #78350f;
+  border-color: #f59e0b;
+}
+
+body.dark .game-info p {
+  color: #fbbf24;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tictactoe {
+    max-width: 280px;
+  }
+  
+  .tictactoe-board {
+    max-width: 200px;
+    gap: 4px;
+  }
+  
+  .tictactoe-cell {
+    font-size: 1.2rem;
+    border-width: 1px;
+  }
+  
+  .game-status h4 {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tictactoe {
+    max-width: 250px;
+  }
+  
+  .tictactoe-board {
+    max-width: 180px;
+  }
+  
+  .tictactoe-cell {
+    font-size: 1rem;
+  }
+} 

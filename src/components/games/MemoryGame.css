@@ -1,0 +1,157 @@
+.memory-game {
+  text-align: center;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.game-header h4 {
+  margin: 0;
+  color: #374151;
+  font-size: 1rem;
+}
+
+body.dark .game-header h4 {
+  color: #e5e7eb;
+}
+
+.game-won {
+  color: #059669 !important;
+  font-weight: 800;
+  font-size: 1rem !important;
+}
+
+body.dark .game-won {
+  color: #34d399 !important;
+}
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+
+.memory-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.card-front {
+  background: #3b82f6;
+  color: white;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background: white;
+  color: #374151;
+  transform: rotateY(180deg);
+}
+
+body.dark .card-front {
+  background: #1e40af;
+}
+
+body.dark .card-back {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+.memory-card:hover .card-inner {
+  transform: scale(1.05);
+}
+
+.memory-card.flipped:hover .card-inner {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.game-info {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+body.dark .game-info {
+  color: #9ca3af;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .memory-game {
+    max-width: 350px;
+  }
+  
+  .memory-board {
+    gap: 0.5rem;
+    max-width: 280px;
+  }
+  
+  .card-front, .card-back {
+    font-size: 1.2rem;
+    border-width: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-game {
+    max-width: 300px;
+  }
+  
+  .memory-board {
+    max-width: 240px;
+    gap: 0.4rem;
+  }
+  
+  .card-front, .card-back {
+    font-size: 1rem;
+  }
+} 

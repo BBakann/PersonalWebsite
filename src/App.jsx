@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ThemeProvider } from './contexts/ThemeContext';
+import Header from './components/common/Header';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Projects from './components/sections/Projects';
+import Games from './components/sections/Games';
+import Contact from './components/sections/Contact';
+import './components/common/Header.css';
+import './components/sections/Hero.css';
+import './components/sections/About.css';
+import './components/sections/Projects.css';
+import './components/sections/Games.css';
+import './components/sections/Contact.css';
+import './components/games/TicTacToe.css';
+import './components/games/SnakeGame.css';
+import './components/games/MemoryGame.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ThemeProvider>
+      <div className="app">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Games />
+          <Contact />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

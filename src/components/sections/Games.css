@@ -1,0 +1,344 @@
+.games {
+  padding: 6rem 0;
+  background: #f8fafc;
+}
+
+body.dark .games {
+  background: #0f172a;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.dark .section-subtitle {
+  color: #d1d5db;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.game-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .game-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.game-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.game-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+body.dark .game-card h3 {
+  color: #f1f5f9;
+}
+
+.game-card p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+body.dark .game-card p {
+  color: #cbd5e1;
+}
+
+.game-difficulty {
+  margin-bottom: 1.5rem;
+}
+
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.difficulty.impossible {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.difficulty.classic {
+  background: #f0f9ff;
+  color: #2563eb;
+}
+
+.difficulty.medium {
+  background: #fefce8;
+  color: #ca8a04;
+}
+
+body.dark .difficulty.impossible {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+body.dark .difficulty.classic {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+body.dark .difficulty.medium {
+  background: #78350f;
+  color: #fbbf24;
+}
+
+/* Enhanced Game Buttons with Animations */
+.game-btn {
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-start {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.animate-start::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.animate-start:hover::before {
+  left: 100%;
+}
+
+.animate-start:hover {
+  background: linear-gradient(45deg, #2563eb, #7c3aed);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.animate-start .btn-icon {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.animate-start:hover .btn-icon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.animate-back {
+  background: linear-gradient(45deg, #6b7280, #4b5563);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.4s ease;
+}
+
+.animate-back:hover::before {
+  left: 100%;
+}
+
+.animate-back:hover {
+  background: linear-gradient(45deg, #4b5563, #374151);
+  transform: translateX(-3px);
+  box-shadow: 0 6px 20px rgba(107, 114, 128, 0.3);
+}
+
+.animate-back .btn-icon {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.animate-back:hover .btn-icon {
+  transform: translateX(-5px);
+  animation: bounceLeft 0.6s ease-in-out;
+}
+
+@keyframes bounceLeft {
+  0%, 100% { transform: translateX(-5px); }
+  50% { transform: translateX(-8px); }
+}
+
+.btn-text {
+  transition: transform 0.3s ease;
+}
+
+.btn-icon {
+  transition: all 0.3s ease;
+}
+
+.active-game {
+  max-width: 700px; /* Daha küçük max-width */
+  margin: 0 auto;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Daha az margin */
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+body.dark .game-header h3 {
+  color: #f1f5f9;
+}
+
+.game-container {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem; /* Daha az padding */
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.game-container.compact {
+  padding: 1rem; /* Oyun açıkken daha az padding */
+  max-width: 100%;
+}
+
+body.dark .game-container {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+/* Oyun boyutlarını küçültmek için */
+.game-container.compact .snake-game {
+  max-width: 400px; /* Snake oyunu için küçük boyut */
+}
+
+.game-container.compact .memory-game {
+  max-width: 500px; /* Memory oyunu için küçük boyut */
+}
+
+.game-container.compact .tictactoe {
+  max-width: 350px; /* TicTacToe için küçük boyut */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .games {
+    padding: 4rem 0;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .game-card {
+    padding: 1.5rem;
+  }
+  
+  .game-header {
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .game-container {
+    padding: 1rem;
+  }
+  
+  .game-container.compact {
+    padding: 0.75rem;
+  }
+  
+  .animate-back {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .game-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .active-game {
+    max-width: 100%;
+  }
+  
+  .game-container.compact .snake-game {
+    max-width: 300px;
+  }
+  
+  .game-container.compact .memory-game {
+    max-width: 350px;
+  }
+  
+  .game-container.compact .tictactoe {
+    max-width: 280px;
+  }
+} 
